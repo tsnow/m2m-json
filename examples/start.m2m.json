@@ -25,7 +25,7 @@
           "inputs" : [
                       {
                        "name":"message",
-                       "value": "Congratulations, $user.name$ on your first M2M Api request."}, 
+                       "value": "Congratulations, $user.name$ on your first M2M Api request."} 
                      ]
          },
          {"id": "BackgroundGreen",
