@@ -1,0 +1,50 @@
+{"m2m": 
+    {
+      "transitions": [
+         {"when":"now",
+          "action":"FirstOpen",
+          "handler":"StateTransition"},
+          
+         {"when": { "to": "FIRST_OPEN"},
+          "action":"PopupWelcome",
+          "handler":"Popup"},
+
+         {"when": { "to": "SliderOn" },
+          "action":"BackgroundGreen",
+          "handler":"ToggleBackgroundColor"},
+
+         {"when": { "to": "SliderOff" },
+          "action":"BackgroundWhite",
+          "handler":"ToggleBackgroundColor"}
+        ],
+      "actions":[
+         {"id": "FirstOpen",
+          "uri" : "state://FIRST_OPEN", 
+         },
+         {"id": "PopupWelcome",
+          "inputs" : [
+                      {
+                       "name":"message",
+                       "value": "Congratulations, $user.name$ on your first M2M Api request."}, 
+                     ]
+         },
+         {"id": "BackgroundGreen",
+          "inputs": [
+                     {"name": "background.color",
+                      "value" : "green"}
+                      ]
+         },
+         {"id": "BackgroundWhite",
+          "inputs": [
+                     {"name": "background.color",
+                      "value" : "white"}
+                      ]
+         }
+        ],
+      "save":{ // The datastore is available to the outside
+               // application to query.
+        "user.id": "10",
+        "user.name" : "Dave Wehadababyitsaboy"
+      }
+    }
+  }
